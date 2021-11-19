@@ -106,7 +106,7 @@ class Api_pcs extends REST_Controller {
             array_push($validation_message,"Email tidak boleh kosong");
         }
 
-        if($this->put("email")!=="" && !filter_var($this->input->post("email"),FILTER_VALIDATE_EMAIL)){
+        if($this->put("email")!=="" && !filter_var($this->put("email"),FILTER_VALIDATE_EMAIL)){
             array_push($validation_message,"Format Email tidak valid");
         }
 
