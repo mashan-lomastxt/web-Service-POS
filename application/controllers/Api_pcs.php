@@ -210,7 +210,7 @@ class Api_pcs extends REST_Controller {
             $payload["id"] = $result["id"];
             $payload["email"] = $result["email"];
             $payload["iat"] = $date->getTimestamp();
-            $payload["exp"] = $date->getTimestamp() + 10800;
+            $payload["exp"] = $date->getTimestamp() + 86400;
 
             $data_json = array(
                 "success" => true,
