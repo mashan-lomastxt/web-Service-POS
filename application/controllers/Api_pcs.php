@@ -210,7 +210,7 @@ class Api_pcs extends REST_Controller {
             $payload["id"] = $result["id"];
             $payload["email"] = $result["email"];
             $payload["iat"] = $date->getTimestamp();
-            $payload["exp"] = $date->getTimestamp() + 86400;
+            $payload["exp"] = $date->getTimestamp() + 3600;
 
             $data_json = array(
                 "success" => true,
@@ -445,10 +445,16 @@ class Api_pcs extends REST_Controller {
         
         $result = $this->M_transaksi->getTransaksiBulanIni();
 
+        $total = 0;
+        foreach($result as $row){
+            $total = $total + $row['total'];
+        }
+
         $data_json = array(
             "success" => true,
             "message" => "Data Found",
             "data" => array(
+                "total" => $total,
                 "transaksi" => $result
             )
             
